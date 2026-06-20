@@ -15,12 +15,13 @@
 
 **让 AI 不只是"配一张图"，而是把文章里的一个关键认知动作画出来。**
 
-## 关于平台适配
+## 关于这个版本
 
-本 Skill 基于 Ian 的 **ian-xiaohei-illustrations**（Codex Skill）改编，原作是 Codex 平台的 Skill。本仓库在此基础上做了 **Hermes Agent 适配**，让 Hermes 用户也能直接使用这套配图工作流。
+本仓库是基于 Ian 的 **ian-xiaohei-illustrations**（Codex Skill）的改编版。主要改动：
 
-- **Hermes 用户**：Skill 已适配 Hermes 的 `image_generate` 工具，直接加载即可使用
-- **Codex 用户**：原版 Codex 调用语法仍然兼容
+1. **视觉 IP 替换** — 从"小黑"（黑色实心、白点眼、细腿）换成"小黑猫"（黑色团子身、黄眼、粉鼻、腮红、表情丰富）
+2. **增加提示词交付模式** — 原作只有直接出图模式（适合能生图的 AI），我们增加了模式 A：AI 写好完整提示词，用户拿去其他平台生成。让没有图生能力的 AI（如 DeepSeek、GPT-4o 文字版）也能用这套 skill
+3. **适配 Hermes Agent** — 改为 Hermes 可加载的 skill 格式，生成步骤适配 Hermes 的 `image_generate` 工具
 
 ## 适合谁用
 
@@ -39,13 +40,15 @@
 
 ## 使用方式
 
-### 在 Hermes 中使用（推荐）
+### 在 Hermes 中使用
 
 加载 skill 后，直接说：
 
 > 用 jiemo-cat-illustrations 给这篇文章配图
 
-Hermes 会自动加载工作流——分析正文 → 出 shot list → 逐张生成 → QA 检查 → 交付。
+Hermes 会加载工作流——分析正文 → 出 shot list → 逐张生成提示词 → 交付。
+
+注意：本 skill 默认走**模式 A（提示词交付）**，即我写好提示词，你去 DALL·E / Midjourney 等平台生成图片。如果你的 Hermes 配置了图片生成后端，也可以走模式 B 自动生成。
 
 详细工作流见 `jiemo-cat-illustrations/SKILL.md`。
 
@@ -92,7 +95,7 @@ jiemo-cat-illustrations/
 
 ## 致谢
 
-本技能基于 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（by [helloianneo](https://github.com/helloianneo)）改编，视觉 IP 从"小黑"替换为"小黑猫"，并增加了 Hermes Agent 平台适配。感谢 Ian 贡献了优秀的 skill 框架和风格体系。
+本技能基于 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（by [helloianneo](https://github.com/helloianneo)）改编。主要改动：视觉 IP 从"小黑"替换为"小黑猫"；增加提示词交付模式（模式 A），让没有图生能力的 AI 也能使用；适配 Hermes Agent 平台。感谢 Ian 贡献了优秀的 skill 框架和风格体系。
 
 ## License
 
