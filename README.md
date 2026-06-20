@@ -2,7 +2,7 @@
 
 **—— 把中文文章里的判断、流程、状态和隐喻，变成一张张白底、手绘、怪诞但清爽的正文配图。**
 
-16:9 横版 | 小黑猫 IP | 纯白手绘 | 少量红橙蓝中文批注 | Codex / Hermes Skill
+16:9 横版 | 小黑猫 IP | 纯白手绘 | 少量红橙蓝中文批注 | 适配 Hermes / Codex
 
 ---
 
@@ -15,6 +15,13 @@
 默认视觉 IP 是"小黑猫"：一只黑色圆润团子身体、黄色大眼睛、粉色小鼻子和腮红、表情丰富的小猫。小黑猫不是吉祥物，不是贴纸，也不是蹲在角落里卖萌的装饰品，而是正在认真参与系统运转的荒诞工作者。
 
 **一句话：让 AI 不只是"配一张图"，而是把文章里的一个关键认知动作画出来。**
+
+## 关于平台适配
+
+本 Skill 基于 Ian 的 **ian-xiaohei-illustrations**（Codex Skill）改编，原作是 Codex 平台的 Skill。本仓库在此基础上做了 **Hermes Agent 适配**，让 Hermes 用户也能直接使用这套配图工作流。
+
+- **Hermes 用户**：Skill 已适配 Hermes 的 `image_generate` 工具，直接加载即可使用
+- **Codex 用户**：原版 Codex 调用语法仍然兼容
 
 ## 适合谁用
 
@@ -33,6 +40,16 @@
 
 ## 使用方式
 
+### 在 Hermes 中使用（推荐）
+
+加载 skill 后，直接说：
+
+> 用 jiemo-cat-illustrations 给这篇文章配图
+
+Hermes 会自动加载工作流——分析正文 → 出 shot list → 逐张生成 → QA 检查 → 交付。
+
+详细工作流见 `jiemo-cat-illustrations/SKILL.md`。
+
 ### 在 Codex 中使用
 
 ```
@@ -43,13 +60,9 @@ Use $jiemo-cat-illustrations 把下面这篇文章生成 4 张小黑猫怪诞正
 <粘贴文章>
 ```
 
-### 在 Hermes 中使用
+### 在其他 AI 工具中使用
 
-加载 skill 后，直接说：
-
-> 用 jiemo-cat-illustrations 给这篇文章配图
-
-详细工作流见 `jiemo-cat-illustrations/SKILL.md`。
+本仓库的 `references/prompt-template.md` 提供了单张生图的完整提示词模板，可以直接复制到 ChatGPT、Midjourney、DALL·E 等工具中使用。
 
 ## 目录结构
 
@@ -61,7 +74,7 @@ jiemo-cat-illustrations/
 ├── assets/
 │   └── examples/          # 示例配图
 └── jiemo-cat-illustrations/
-    ├── SKILL.md            # 核心 skill 指令
+    ├── SKILL.md            # 核心 skill 指令（Hermes 适配版）
     └── references/
         ├── style-dna.md           # 风格 DNA、颜色、禁忌
         ├── cat-ip.md              # 小黑猫 IP 设定
@@ -80,7 +93,7 @@ jiemo-cat-illustrations/
 
 ## 致谢
 
-本技能基于 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（by [helloianneo](https://github.com/helloianneo)）改编，视觉 IP 从"小黑"替换为"小黑猫"。感谢 Ian 贡献了优秀的 skill 框架和风格体系。
+本技能基于 [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（by [helloianneo](https://github.com/helloianneo)）改编，视觉 IP 从"小黑"替换为"小黑猫"，并增加了 Hermes Agent 平台适配。感谢 Ian 贡献了优秀的 skill 框架和风格体系。
 
 ## License
 
